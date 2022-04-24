@@ -11,7 +11,7 @@ async function main() {
 
     // print addy of deployed contract
     console.log(
-        "Whitelist Contract Address:", deployedWhitelistContract
+        "This is the Whitelist Contract Address:", deployedWhitelistContract.address
     );
 }
 

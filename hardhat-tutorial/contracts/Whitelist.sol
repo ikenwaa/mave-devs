@@ -6,10 +6,10 @@ contract Whitelist {
     uint8 public maxWhitelistedAddresses;
 
     // Whitelisted addresses = True while non whitelisted addies = False
-    mapping(address => bool) public WhitelistedAddresses;
+    mapping(address => bool) public whitelistedAddresses;
 
     // Keep track of whitelisted addies
-    uint8 public numOfWhitelistedAddresses;
+    uint8 public numAddressesWhitelisted;
 
     // Set max num of whitelisted addies.
     constructor(uint8 _maxWhitelistedAddresses){
@@ -19,12 +19,12 @@ contract Whitelist {
     // addAddressToWhitelist - this func adds the address of the contract sender.
     function addAddressToWhitelist() public {
         // Check if user has been whitelisted
-        require(!WhitelistedAddresses[msg.sender], "Sender is in the whitelist.");
+        require(!whitelistedAddresses[msg.sender], "Sender is in the whitelist.");
         // Check if num of whitelisted addies < max num of whitelisted addies,
-        require(numOfWhitelistedAddresses < maxWhitelistedAddresses, "Sorry, whitelist has reached its limit.");
+        require(numAddressesWhitelisted < maxWhitelistedAddresses, "Sorry, whitelist has reached its limit.");
         // Add the addy that called function to the whitelistedAddresses array
-        WhitelistedAddresses[msg.sender] = true;
+        whitelistedAddresses[msg.sender] = true;
         // Increase the num of whitelisted addies
-        numOfWhitelistedAddresses += 1;    
+        numAddressesWhitelisted += 1;    
     }
 }
