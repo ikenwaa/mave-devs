@@ -187,7 +187,7 @@ return(
     </div>
 
     <footer className={styles.footer}>
-      Made with &#10084; by Augustine Ikenwa.
+      Made with &#10084; by&nbsp;<a href="https://www.github.com/ikenwaa" target="_blank">Augustine Ikenwa.</a>
     </footer>
   </div>
 );

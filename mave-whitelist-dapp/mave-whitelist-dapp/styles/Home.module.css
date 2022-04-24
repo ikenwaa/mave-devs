@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.footer a{
+  color: blue;
+}
+
 .image {
   width: 70%;
   height: 50%;
