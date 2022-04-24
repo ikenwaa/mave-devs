@@ -20,6 +20,10 @@
   color: blue;
 }
 
+.footer span {
+  color: red;
+}
+
 .image {
   width: 70%;
   height: 50%;
