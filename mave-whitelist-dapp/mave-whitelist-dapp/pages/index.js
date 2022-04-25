@@ -182,12 +182,12 @@ return(
         {renderButton()}
       </div>
       <div>
-        <img className={styles.image} src="./crypto-devs.svg" />
+        <Image className={styles.image} src="./crypto-devs.svg" alt="background image" />
       </div>
     </div>
 
     <footer className={styles.footer}>
-      Made with&nbsp;<span>&#10084;</span>&nbsp;by&nbsp;<a href="https://www.github.com/ikenwaa" target="_blank">Augustine Ikenwa</a>
+      Made with&nbsp;<span>&#10084;</span>&nbsp;by&nbsp;<a href="https://www.github.com/ikenwaa" target="_blank" rel="noreferrer">Augustine Ikenwa</a>
     </footer>
   </div>
 );
