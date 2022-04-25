@@ -13,7 +13,7 @@ export default function Home() {
   // Set loading to true when waiting for transaction to get mined
   const [loading, setLoading] = useState(false);
   // Track the number of addresses added to the whitelist
-  const [numOfWhitelisted, setNumOfWhitelisted] = useState(0);
+  const [numberOfWhitelisted, setNumberOfWhitelisted] = useState(0);
   // Create reference to Web3Modal for users to connect ether wallet.
   const web3ModalRef = useRef();
 
@@ -58,14 +58,14 @@ export default function Home() {
     await tx.wait();
     setLoading(false);
     // Get the number of addresses in the whitelist
-    await getNumOfwhitelisted();
+    await getNumberOfWhitelisted();
     setJoinedWhitelist(true);
   } catch (err) {
     console.error(err);
    }
  };
 
- const getNumOfwhitelisted = async () => {
+ const getNumberOfWhitelisted = async () => {
    try {
      // Get provider from Web3Modal
      const provider = await getProviderOrSigner();
@@ -75,9 +75,9 @@ export default function Home() {
        abi,
        provider
      );
-     // Call the numOfWhitelistedAddresses from the "Whitelist.sol" contract
-     const _numOfWhitelisted = await whitelistContract.numOfWhitelistedAddresses;
-     setNumOfWhitelisted(_numOfWhitelisted);
+     // Call the numAddressesWhitelisted() from the "Whitelist.sol" contract
+     const _numberOfWhitelisted = await whitelistContract.numAddressesWhitelisted();
+     setNumberOfWhitelisted(_numberOfWhitelisted);
    } catch (err) {
      console.error(err);
    };
@@ -114,7 +114,7 @@ const connectWallet = async () => {
     setWalletConnected(true);
 
     checkIfAddressInWhitelist();
-    getNumOfwhitelisted();
+    getNumberOfWhitelisted();
   } catch (err) {
     console.error(err)
   }
@@ -172,12 +172,12 @@ return(
     </Head>
     <div className={styles.main}>
       <div>
-        <h1 className={styles.title}>Welcome to Mave DeFi.</h1>
+        <h1 className={styles.title}>Welcome to Mave DeFi👋</h1>
         <div className={styles.description}>
-          Mave DeFi is an collection of Non Fungible Tokens for Web3 builders and devs.
+          Mave DeFi is a collection of Non Fungible Tokens for Web3 builders and devs.
         </div>
         <div className={styles.description}>
-          {numOfWhitelisted} have already joined the Whitelist.
+          {numberOfWhitelisted} have already joined the Whitelist.
         </div>
         {renderButton()}
       </div>
